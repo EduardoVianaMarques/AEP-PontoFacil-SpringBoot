@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ponto Fácil - Nova Solicitação</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/menu-lateral.css}">
+
+</head>
+
+<style>
+    :root{
+        --primary:#2563eb;
+        --primary-dark:#1d4ed8;
+        --primary-light:#dbeafe;
+        --success:#16a34a;
+        --danger:#dc2626;
+        --bg:#f8fafc;
+        --surface:#ffffff;
+        --text:#0f172a;
+        --text-light:#64748b;
+        --border:#e2e8f0;
+        --shadow:0 10px 40px rgba(15,23,42,.06);
+        --radius:24px;
+    }
+
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+    }
+
+    body{
+        font-family:'Inter',sans-serif;
+        background:var(--bg);
+        color:var(--text);
+    }
+
+    .dashboard{
+        display:flex;
+        min-height:100vh;
+    }
+
+    .content{
+        flex:1;
+        padding:40px;
+    }
+
+    .page-header{
+        margin-bottom:30px;
+    }
+
+    .page-badge{
+        display:inline-flex;
+        align-items:center;
+        gap:8px;
+        background:white;
+        border:1px solid var(--border);
+        padding:10px 18px;
+        border-radius:999px;
+        font-size:.9rem;
+        font-weight:600;
+        margin-bottom:20px;
+        box-shadow:var(--shadow);
+    }
+
+    .page-badge i{
+        color:var(--primary);
+    }
+
+    .page-title{
+        font-size:2.8rem;
+        font-weight:800;
+        margin-bottom:10px;
+    }
+
+    .page-subtitle{
+        color:var(--text-light);
+        font-size:1.05rem;
+        max-width:800px;
+        line-height:1.8;
+    }
+
+    .request-card{
+        background:white;
+        border-radius:30px;
+        padding:40px;
+        border:1px solid var(--border);
+        box-shadow:var(--shadow);
+    }
+
+    .info-alert{
+        display:flex;
+        align-items:flex-start;
+        gap:15px;
+        background:var(--primary-light);
+        color:var(--primary-dark);
+        border-radius:18px;
+        padding:18px;
+        margin-bottom:30px;
+    }
+
+    .info-alert i{
+        font-size:1.4rem;
+    }
+
+    .section-title{
+        font-size:1.2rem;
+        font-weight:700;
+        margin-bottom:20px;
+        margin-top:20px;
+        color:var(--text);
+    }
+
+    .form-label{
+        font-weight:600;
+        margin-bottom:8px;
+    }
+
+    .modern-input{
+        min-height:55px;
+        border-radius:14px;
+        border:1px solid var(--border);
+
+    }
+    .foto-input{
+        display: none;
+    }
+
+    .modern-input:focus{
+        border-color:var(--primary);
+        box-shadow:0 0 0 4px rgba(37,99,235,.15);
+    }
+
+    textarea.modern-input{
+        min-height:auto;
+        padding:15px;
+    }
+
+    .input-icon{
+        position:absolute;
+        left:16px;
+        top:18px;
+        color:#94a3b8;
+    }
+
+    .upload-card{
+        border:2px dashed var(--border);
+        border-radius:24px;
+        padding:40px;
+        text-align:center;
+        background:#fafcff;
+        transition:.3s;
+    }
+
+    .upload-card:hover{
+        border-color:var(--primary);
+    }
+
+    .upload-icon{
+        font-size:3rem;
+        color:var(--primary);
+        margin-bottom:15px;
+    }
+
+    .upload-card h5{
+        font-weight:700;
+        margin-bottom:10px;
+    }
+
+    .upload-card p{
+        color:var(--text-light);
+        margin-bottom:20px;
+    }
+
+    .privacy-card{
+        background:#fafcff;
+        border:1px solid var(--border);
+        border-radius:20px;
+        padding:25px;
+    }
+
+    .form-check-input:checked{
+        background-color:var(--primary);
+        border-color:var(--primary);
+    }
+
+    .action-buttons{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        margin-top:40px;
+        gap:15px;
+        flex-wrap:wrap;
+    }
+
+    .btn-primary-modern{
+        background:var(--primary);
+        color:white;
+        border:none;
+        border-radius:14px;
+        padding:14px 28px;
+        font-weight:600;
+        transition:.3s;
+    }
+
+    .btn-primary-modern:hover{
+        background:var(--primary-dark);
+        color:white;
+        transform:translateY(-2px);
+    }
+
+    .btn-secondary-modern{
+        background:white;
+        color:var(--text);
+        border:1px solid var(--border);
+        border-radius:14px;
+        padding:14px 28px;
+        font-weight:600;
+        text-decoration:none;
+        transition:.3s;
+    }
+
+    .btn-secondary-modern:hover{
+        background:#f1f5f9;
+        color:var(--text);
+        transform:translateY(-2px);
+    }
+
+    .alert{
+        border-radius:14px;
+    }
+
+
+
+    @media(max-width:1200px){
+        .content{
+            padding:30px;
+        }
+    }
+
+    @media(max-width:992px){
+
+        .dashboard{
+            flex-direction:column;
+        }
+
+        .content{
+            padding:25px;
+        }
+
+        .page-title{
+            font-size:2.2rem;
+        }
+
+        .request-card{
+            padding:30px;
+        }
+    }
+
+    @media(max-width:768px){
+
+        .page-title{
+            font-size:1.9rem;
+        }
+
+        .request-card{
+            padding:25px;
+        }
+
+        .action-buttons{
+            flex-direction:column;
+        }
+
+        .btn-primary-modern,
+        .btn-secondary-modern{
+            width:100%;
+            text-align:center;
+        }
+    }
+
+    @media(max-width:576px){
+
+        .content{
+            padding:15px;
+        }
+
+        .request-card{
+            padding:20px;
+        }
+
+        .upload-card{
+            padding:25px;
+        }
+
+        .page-title{
+            font-size:1.6rem;
+        }
+    }
+
+
+
+</style>
+
+<body>
+
+<div class="dashboard">
+    <aside th:replace="~{fragments/navbar :: sidebar('nova-solicitacao')}"></aside>
+    <main class="content">
+        <div class="request-card">
+            <div class="info-alert">
+                <i class="bi bi-info-circle-fill"></i>
+                <div>
+                    Preencha todas as informações corretamente para agilizar a análise da solicitação.
+                </div>
+
+            </div>
+
+            <div th:if="${erro}"
+                 class="alert alert-danger"
+                 th:text="${erro}">
+            </div>
+
+            <form th:action="@{/solicitacoes/salvar}"
+                  method="post"
+                  enctype="multipart/form-data">
+
+                <div class="section-title">
+                    Localização da Ocorrência
+                </div>
+
+                <div class="row">
+
+                    <div class="col-md-8 mb-4">
+
+                        <label class="form-label">
+                            Endereço
+                        </label>
+
+                        <div class="position-relative">
+
+                            <i class="bi bi-geo-alt input-icon"></i>
+
+                            <input
+                                    type="text"
+                                    class="form-control modern-input ps-5"
+                                    name="localizacao"
+                                    placeholder="Rua, Avenida ou Local"
+                                    required>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4 mb-4">
+
+                        <label class="form-label">
+                            Número
+                        </label>
+
+                        <input
+                                type="text"
+                                class="form-control modern-input"
+                                name="numero"
+                                placeholder="Nº"
+                                required>
+
+                    </div>
+
+                </div>
+
+                <div class="section-title">
+                    Informações da Solicitação
+                </div>
+
+                <div class="row">
+
+                    <div class="col-md-6 mb-4">
+
+                        <label class="form-label">
+                            Categoria
+                        </label>
+
+                        <select class="form-select modern-input"
+                                name="categoria"
+                                required>
+
+                            <option value="">
+                                Selecione uma categoria
+                            </option>
+
+                            <option value="SAUDE_PUBLICA">
+                                Saúde Pública
+                            </option>
+
+                            <option value="INFRAESTRUTURA_PUBLICA">
+                                Infraestrutura Pública
+                            </option>
+
+                            <option value="LIMPEZA_URBANA">
+                                Limpeza Urbana
+                            </option>
+
+                            <option value="SEGURANCA_PUBLICA">
+                                Segurança Pública
+                            </option>
+
+                            <option value="TRANSPORTE_PUBLICO">
+                                Transporte Público
+                            </option>
+
+                            <option value="OUTROS">
+                                Outros
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="col-md-6 mb-4">
+
+                        <label class="form-label">
+                            Prioridade
+                        </label>
+
+                        <select class="form-select modern-input" disabled>
+
+                            <option>
+                                Definida automaticamente pelo sistema
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+                <div class="mb-4">
+
+                    <label class="form-label">
+                        Descrição do Problema
+                    </label>
+
+                    <textarea
+                            rows="7"
+                            class="form-control modern-input"
+                            name="descricao"
+                            placeholder="Descreva detalhadamente o problema encontrado..."
+                            required>
+                    </textarea>
+
+                </div>
+
+                <div class="section-title">
+                    Evidências
+                </div>
+
+                <div class="upload-card">
+                    <i class="bi bi-cloud-arrow-up upload-icon"></i>
+
+                    <h5>Anexar Foto</h5>
+                    <p>
+                        O envio da imagem é opcional, mas ajuda na análise da solicitação.
+                    </p>
+                    <input
+                            type="file"
+                            class="custom-file-input"
+                            name="imagem"
+                            accept="image/*">
+                </div>
+
+                <div class="section-title mt-5">
+                    Privacidade
+                </div>
+
+                <div class="privacy-card">
+
+                    <div class="form-check mb-3">
+
+                        <input
+                                class="form-check-input"
+                                type="radio"
+                                name="anonimo"
+                                value="false">
+
+                        <label class="form-check-label">
+                            Sim, exibir meus dados para identificação.
+                        </label>
+
+                    </div>
+
+                    <div class="form-check">
+
+                        <input
+                                class="form-check-input"
+                                type="radio"
+                                name="anonimo"
+                                value="true"
+                                checked>
+
+                        <label class="form-check-label">
+                            Não, enviar solicitação anonimamente.
+                        </label>
+
+                    </div>
+
+                </div>
+
+                <div class="action-buttons">
+
+                    <a th:href="@{/dashboard}"
+                       class="btn btn-secondary-modern">
+
+                        <i class="bi bi-arrow-left"></i>
+                        Voltar
+
+                    </a>
+
+                    <button type="submit"
+                            class="btn btn-primary-modern">
+
+                        <i class="bi bi-send-fill"></i>
+                        Enviar Solicitação
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </main>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
+

@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ponto Fácil - Contato</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/menu-lateral.css}">
+</head>
+<style>
+    :root{
+        --primary:#2563eb;
+        --primary-dark:#1d4ed8;
+        --primary-light:#dbeafe;
+        --success:#16a34a;
+        --bg:#f8fafc;
+        --surface:#ffffff;
+        --text:#0f172a;
+        --text-light:#64748b;
+        --border:#e2e8f0;
+        --shadow:0 10px 40px rgba(15,23,42,.06);
+        --radius:24px;
+    }
+
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+    }
+
+    html{
+        scroll-behavior:smooth;
+    }
+
+    body{
+        font-family:'Inter',sans-serif;
+        background:var(--bg);
+        color:var(--text);
+    }
+
+    section{
+        padding:90px 0;
+    }
+
+    .section-title{
+        font-size:2.3rem;
+        font-weight:800;
+        margin-bottom:15px;
+    }
+
+    .section-subtitle{
+        text-align:center;
+        color:var(--text-light);
+        max-width:700px;
+        margin:0 auto 60px;
+        line-height:1.8;
+    }
+
+    .section-description{
+        color:var(--text-light);
+        margin-bottom:30px;
+        line-height:1.8;
+    }
+
+    .hero{
+        min-height:80vh;
+        display:flex;
+        align-items:center;
+        text-align:center;
+        background:
+            radial-gradient(circle at top left,
+            rgba(37,99,235,.10),
+            transparent 40%),
+            radial-gradient(circle at bottom right,
+            rgba(22,163,74,.08),
+            transparent 40%);
+    }
+
+    .hero-content{
+        max-width:850px;
+        margin:auto;
+    }
+
+    .hero-badge{
+        display:inline-flex;
+        align-items:center;
+        gap:8px;
+        background:white;
+        border:1px solid var(--border);
+        padding:10px 18px;
+        border-radius:999px;
+        font-size:.9rem;
+        font-weight:600;
+        margin-bottom:25px;
+    }
+
+    .hero-badge i{
+        color:var(--success);
+    }
+
+    .hero-title{
+        font-size:4rem;
+        font-weight:800;
+        line-height:1.1;
+        margin-bottom:20px;
+    }
+
+    .hero-title span{
+        color:var(--primary);
+    }
+
+    .hero-description{
+        font-size:1.1rem;
+        color:var(--text-light);
+        line-height:1.8;
+        margin-bottom:35px;
+    }
+
+    .hero-buttons{
+        display:flex;
+        justify-content:center;
+        gap:15px;
+        flex-wrap:wrap;
+    }
+
+    .btn-primary-modern{
+        background:var(--primary);
+        color:white;
+        border:none;
+        border-radius:14px;
+        padding:14px 28px;
+        font-weight:600;
+        transition:.3s;
+    }
+
+    .btn-primary-modern:hover{
+        background:var(--primary-dark);
+        color:white;
+        transform:translateY(-2px);
+    }
+
+    .btn-secondary-modern{
+        background:white;
+        color:var(--text);
+        border:1px solid var(--border);
+        border-radius:14px;
+        padding:14px 28px;
+        font-weight:600;
+        transition:.3s;
+    }
+
+    .btn-secondary-modern:hover{
+        background:#f1f5f9;
+        color:var(--text);
+        transform:translateY(-2px);
+    }
+
+    .info-card{
+        background:white;
+        border:1px solid var(--border);
+        border-radius:24px;
+        padding:35px;
+        box-shadow:var(--shadow);
+    }
+
+    .card-title{
+        font-size:1.6rem;
+        font-weight:700;
+        margin-bottom:30px;
+    }
+
+    .info-item{
+        display:flex;
+        gap:18px;
+        margin-bottom:30px;
+    }
+
+    .info-item:last-child{
+        margin-bottom:0;
+    }
+
+    .info-icon{
+        width:60px;
+        height:60px;
+        border-radius:18px;
+        background:var(--primary-light);
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        flex-shrink:0;
+    }
+
+    .info-icon i{
+        color:var(--primary);
+        font-size:1.5rem;
+    }
+
+    .info-item h5{
+        font-size:1rem;
+        font-weight:700;
+        margin-bottom:5px;
+    }
+
+    .info-item p{
+        color:var(--text-light);
+        margin:0;
+        line-height:1.7;
+    }
+
+    .contact-card{
+        background:white;
+        border:1px solid var(--border);
+        border-radius:24px;
+        padding:40px;
+        box-shadow:var(--shadow);
+    }
+
+    .form-label{
+        font-weight:600;
+        margin-bottom:8px;
+    }
+
+    .modern-input{
+        min-height:55px;
+        border-radius:14px;
+        border:1px solid var(--border);
+    }
+
+    textarea.modern-input{
+        min-height:auto;
+        padding:15px;
+    }
+
+    .modern-input:focus{
+        border-color:var(--primary);
+        box-shadow:0 0 0 4px rgba(37,99,235,.15);
+    }
+
+    .map-section{
+        background:white;
+    }
+
+    .map-card{
+        overflow:hidden;
+        border-radius:24px;
+        border:1px solid var(--border);
+        box-shadow:var(--shadow);
+    }
+
+    .faq-section{
+        background:var(--bg);
+    }
+
+    .modern-accordion .accordion-item{
+        border:none;
+        border-radius:18px !important;
+        overflow:hidden;
+        margin-bottom:15px;
+        box-shadow:var(--shadow);
+    }
+
+    .modern-accordion .accordion-button{
+        font-weight:600;
+        padding:20px;
+        background:white;
+    }
+
+    .modern-accordion .accordion-button:not(.collapsed){
+        background:var(--primary);
+        color:white;
+    }
+
+    .modern-accordion .accordion-button:focus{
+        box-shadow:none;
+    }
+
+    .modern-accordion .accordion-body{
+        color:var(--text-light);
+        line-height:1.8;
+        padding:20px;
+    }
+
+    .footer{
+        background:#0f172a;
+        color:#cbd5e1;
+        padding:70px 0 30px;
+    }
+
+    .footer-logo{
+        color:white;
+        margin-bottom:20px;
+    }
+
+    .footer-logo i{
+        color:#60a5fa;
+    }
+
+    .footer h5{
+        color:white;
+        margin-bottom:20px;
+    }
+
+    .footer-links{
+        list-style:none;
+        padding:0;
+    }
+
+    .footer-links li{
+        margin-bottom:10px;
+    }
+
+    .footer-links a{
+        color:#cbd5e1;
+        text-decoration:none;
+        transition:.3s;
+    }
+
+    .footer-links a:hover{
+        color:white;
+    }
+
+    .footer p{
+        margin-bottom:10px;
+    }
+
+    .footer hr{
+        border-color:#334155;
+        margin:30px 0;
+    }
+
+    @media(max-width:992px){
+
+        .hero{
+            min-height:auto;
+            padding:120px 0 80px;
+        }
+
+        .hero-title{
+            font-size:2.8rem;
+        }
+
+        .contact-card{
+            padding:30px;
+        }
+
+        .info-card{
+            padding:30px;
+        }
+    }
+
+    @media(max-width:576px){
+
+        .hero-title{
+            font-size:2.2rem;
+        }
+
+        .section-title{
+            font-size:1.8rem;
+        }
+
+        .hero-buttons{
+            flex-direction:column;
+        }
+
+        .btn-primary-modern,
+        .btn-secondary-modern{
+            width:100%;
+        }
+
+        .contact-card{
+            padding:25px;
+        }
+
+        .info-card{
+            padding:25px;
+        }
+
+        .info-item{
+            flex-direction:column;
+            text-align:center;
+            align-items:center;
+        }
+    }
+
+</style>
+
+<body>
+<nav th:replace="~{fragments/navbar :: navbar('contato')}"></nav>
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="bi bi-chat-dots-fill"></i>
+                Estamos aqui para ajudar
+            </div>
+            <h1 class="hero-title">
+                Entre em
+                <span>Contato</span>
+            </h1>
+            <p class="hero-description">
+                Tire dúvidas, envie sugestões ou entre em contato com nossa equipe.
+                Estamos sempre disponíveis para melhorar sua experiência no Ponto Fácil.
+            </p>
+            <div class="hero-buttons">
+                <a th:href="@{/}"
+                   class="btn btn-secondary-modern">
+                    <i class="bi bi-arrow-left"></i>
+                    Voltar ao Início
+                </a>
+                <a th:href="@{/cadastro}"
+                   class="btn btn-primary-modern">
+                    <i class="bi bi-person-plus-fill"></i>
+                    Criar Conta
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- CONTATO -->
+
+<section>
+    <div class="container">
+        <div class="row g-4">
+            <!-- INFORMAÇÕES -->
+            <div class="col-lg-4">
+                <div class="info-card h-100">
+                    <h3 class="card-title">
+                        Informações de Contato
+                    </h3>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="bi bi-telephone-fill"></i>
+                        </div>
+                        <div>
+                            <h5>Telefone</h5>
+                            <p>(44) 99999-9999</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="bi bi-envelope-fill"></i>
+                        </div>
+                        <div>
+                            <h5>E-mail</h5>
+                            <p>contato@pontofacil.com.br</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="bi bi-geo-alt-fill"></i>
+                        </div>
+                        <div>
+                            <h5>Localização</h5>
+                            <p>Maringá - Paraná</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="bi bi-clock-fill"></i>
+                        </div>
+                        <div>
+                            <h5>Horário de Atendimento</h5>
+                            <p>Segunda a Sexta<br>08:00 às 18:00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- FORMULÁRIO -->
+            <div class="col-lg-8">
+                <div class="contact-card">
+                    <h2 class="section-title text-start mb-3">
+                        Envie sua Mensagem
+                    </h2>
+                    <p class="section-description">
+                        Preencha o formulário abaixo e nossa equipe entrará
+                        em contato o mais breve possível.
+                    </p>
+                    <div th:if="${sucesso}"
+                         class="alert alert-success"
+                         th:text="${sucesso}">
+                    </div>
+                    <div th:if="${erro}"
+                         class="alert alert-danger"
+                         th:text="${erro}">
+                    </div>
+                    <form th:action="@{/contato}" method="post">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">
+                                    Nome Completo
+                                </label>
+                                <input type="text"
+                                       class="form-control modern-input"
+                                       name="nome"
+                                       placeholder="Digite seu nome"
+                                       required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">
+                                    E-mail
+                                </label>
+                                <input type="email"
+                                       class="form-control modern-input"
+                                       name="email"
+                                       placeholder="Digite seu e-mail"
+                                       required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">
+                                Assunto
+                            </label>
+                            <input type="text"
+                                   class="form-control modern-input"
+                                   name="assunto"
+                                   placeholder="Informe o assunto"
+                                   required>
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label">
+                                Mensagem
+                            </label>
+                            <textarea class="form-control modern-input"
+                                      rows="6"
+                                      name="mensagem"
+                                      placeholder="Digite sua mensagem..."
+                                      required>
+                            </textarea>
+                        </div>
+                        <button type="submit"
+                                class="btn btn-primary-modern w-100">
+                            <i class="bi bi-send-fill"></i>
+                            Enviar Mensagem
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- MAPA -->
+
+<section class="map-section">
+    <div class="container">
+        <h2 class="section-title">
+            Nossa Localização
+        </h2>
+        <p class="section-subtitle">
+            Estamos localizados em Maringá e disponíveis para atender você.
+        </p>
+        <div class="map-card">
+            <iframe
+                    src="https://maps.google.com/maps?q=Maringa%20PR&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                    width="100%"
+                    height="450"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy">
+            </iframe>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+
+<section class="faq-section">
+    <div class="container">
+        <h2 class="section-title">
+            Perguntas Frequentes
+        </h2>
+        <p class="section-subtitle">
+            Respostas rápidas para as dúvidas mais comuns dos usuários.
+        </p>
+        <div class="accordion modern-accordion" id="faq">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#faq1">
+
+                        Como registrar uma solicitação?
+                    </button>
+                </h2>
+                <div id="faq1"
+                     class="accordion-collapse collapse show"
+                     data-bs-parent="#faq">
+                    <div class="accordion-body">
+                        Acesse a área de serviços, escolha a categoria desejada
+                        e preencha o formulário com as informações da ocorrência.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#faq2">
+                        Posso acompanhar minha solicitação?
+                    </button>
+                </h2>
+                <div id="faq2"
+                     class="accordion-collapse collapse"
+                     data-bs-parent="#faq">
+                    <div class="accordion-body">
+                        Sim. Você pode acompanhar em tempo real utilizando
+                        o número de protocolo gerado pelo sistema.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#faq3">
+                        Existe custo para utilizar a plataforma?
+                    </button>
+                </h2>
+                <div id="faq3"
+                     class="accordion-collapse collapse"
+                     data-bs-parent="#faq">
+                    <div class="accordion-body">
+                        Não. O Ponto Fácil é totalmente gratuito para todos os cidadãos.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <h4 class="footer-logo">
+                    <i class="bi bi-geo-alt-fill"></i>
+                    Ponto Fácil
+                </h4>
+                <p>
+                    Plataforma de gestão de solicitações urbanas que aproxima
+                    cidadãos e administração pública.
+                </p>
+            </div>
+            <div class="col-lg-4">
+                <h5>Links Rápidos</h5>
+                <ul class="footer-links">
+                    <li><a href="#">Contato</a></li>
+                    <li><a th:href="@{/como-funciona}">Como Funciona</a></li>
+                    <li><a th:href="@{/cadastro}">Cadastro</a></li>
+                    <li><a th:href="@{/login}">Login</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-4">
+                <h5>Contato</h5>
+                <p>
+                    <i class="bi bi-envelope-fill"></i>
+                    contato@pontofacil.com.br
+                </p>
+                <p>
+                    <i class="bi bi-telephone-fill"></i>
+                    (44) 99999-9999
+                </p>
+                <p>
+                    <i class="bi bi-geo-alt-fill"></i>
+                    Maringá - PR
+                </p>
+            </div>
+        </div>
+        <hr>
+        <div class="text-center">
+             2026 Ponto Fácil - Todos os direitos reservados
+        </div>
+    </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
