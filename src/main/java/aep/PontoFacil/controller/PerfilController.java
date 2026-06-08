@@ -115,6 +115,7 @@ public class PerfilController {
                 .toList();
 
         model.addAttribute("usuario", usuario);
+        model.addAttribute("solicitacoes", solicitacoes);
         model.addAttribute("totalRegistradas", solicitacoes.size());
         model.addAttribute("totalAndamento",
                 contarPorStatus(solicitacoes, Status.EM_ANDAMENTO));

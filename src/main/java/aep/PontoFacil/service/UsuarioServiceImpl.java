@@ -45,8 +45,8 @@ public class UsuarioServiceImpl implements UsuarioService {
         usuario.setNome(nome);
         usuario.setDataNascimento(dataNascimento);
         usuario.setEmail(email);
-        usuario.setCpf(cpf);
-        usuario.setTelefone(telefone);
+        usuario.setCpf(cpf.replaceAll("\\D", ""));
+        usuario.setTelefone(telefone.replaceAll("\\D", ""));
         usuario.setSenha(senha);
 
         return repository.save(usuario);

@@ -436,29 +436,21 @@
                         <i class="bi bi-bell-fill text-warning"></i>
                         Notificações
                     </h4>
-                    <div class="notification-item">
-                        <div class="notification-icon">
-                            <i class="bi bi-file-earmark-check"></i>
-                        </div>
-                        <div>Solicitação PF-001 atualizada</div>
+
+                    <div th:if="${#lists.isEmpty(solicitacoes)}">
+                        <p class="text-muted">Nenhuma solicitação encontrada.</p>
                     </div>
-                    <div class="notification-item">
-                        <div class="notification-icon success">
-                            <i class="bi bi-check-circle-fill"></i>
-                        </div>
-                        <div>Solicitação PF-002 finalizada</div>
-                    </div>
-                    <div class="notification-item">
+
+                    <div th:each="s : ${solicitacoes}" class="notification-item">
                         <div class="notification-icon">
-                            <i class="bi bi-chat-dots-fill"></i>
+                            <i class="bi bi-file-earmark-text"></i>
                         </div>
-                        <div>Nova mensagem da prefeitura</div>
-                    </div>
-                    <div class="notification-item">
-                        <div class="notification-icon">
-                            <i class="bi bi-send-fill"></i>
+
+                        <div>
+                            <strong th:text="${s.protocolo}">PF-0000</strong>
+                            <br>
+                            <small th:text="${s.status}">STATUS</small>
                         </div>
-                        <div>Solicitação encaminhada ao setor responsável</div>
                     </div>
                 </div>
 
