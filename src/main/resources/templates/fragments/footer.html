@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<footer th:fragment="footer" class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <h4 class="footer-logo">
+                    <i class="bi bi-geo-alt-fill"></i> Ponto Fácil
+                </h4>
+                <p>
+                    Plataforma de gestão de solicitações urbanas que aproxima
+                    cidadãos e administração pública.
+                </p>
+            </div>
+
+            <div class="col-lg-4">
+                <h5>Links Rápidos</h5>
+                <ul class="footer-links">
+                    <li><a th:href="@{/servicos}">Serviços</a></li>
+                    <li><a th:href="@{/como-funciona}">Como Funciona</a></li>
+                    <li><a th:href="@{/contato}">Contato</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-4">
+                <h5>Contato</h5>
+                <p>
+                    <i class="bi bi-envelope-fill"></i>
+                    contato@pontofacil.com.br
+                </p>
+                <p>
+                    <i class="bi bi-telephone-fill"></i>
+                    (44) 99999-9999
+                </p>
+                <p>
+                    <i class="bi bi-geo-alt-fill"></i>
+                    Maringá - PR
+                </p>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="text-center">
+            © 2026 Ponto Fácil - Todos os direitos reservados
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

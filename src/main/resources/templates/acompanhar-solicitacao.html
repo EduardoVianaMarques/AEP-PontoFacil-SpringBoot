@@ -1,20 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ponto Fácil - Acompanhar Solicitações</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
-          rel="stylesheet">
+<head th:replace="fragments/head :: head('Ponto Fácil')"></head>
 
-    <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-          rel="stylesheet">
-
-    <link rel="stylesheet" th:href="@{/menu-lateral.css}">
     <style>
         :root {
             --primary: #2563eb;
@@ -230,7 +218,6 @@
             }
         }
     </style>
-</head>
 <body>
 <div class="dashboard">
     <aside th:replace="~{fragments/navbar_MenuLAteral :: sidebar('acompanhar')}"></aside>
