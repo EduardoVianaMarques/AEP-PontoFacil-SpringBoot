@@ -389,7 +389,7 @@
 </style>
 
 <body>
-<nav th:replace="~{fragments/navbar :: navbar('contato')}"></nav>
+<nav th:replace="~{fragments/navbar_MenuLAteral :: navbar('contato')}"></nav>
 <section class="hero">
     <div class="container">
         <div class="hero-content">
@@ -631,50 +631,39 @@
         </div>
     </div>
 </section>
+
 <footer class="footer">
     <div class="container">
         <div class="row">
             <div class="col-lg-4">
                 <h4 class="footer-logo">
-                    <i class="bi bi-geo-alt-fill"></i>
-                    Ponto Fácil
+                    <i class="bi bi-geo-alt-fill"></i> Ponto Fácil
                 </h4>
-                <p>
-                    Plataforma de gestão de solicitações urbanas que aproxima
-                    cidadãos e administração pública.
-                </p>
+                <p>Plataforma de gestão de solicitações urbanas que aproxima cidadãos e administração pública.</p>
             </div>
             <div class="col-lg-4">
                 <h5>Links Rápidos</h5>
                 <ul class="footer-links">
-                    <li><a href="#">Contato</a></li>
-                    <li><a th:href="@{/como-funciona}">Como Funciona</a></li>
-                    <li><a th:href="@{/cadastro}">Cadastro</a></li>
-                    <li><a th:href="@{/login}">Login</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#como-funciona">Como Funciona</a></li>
+                    <li><a href="#contato">Contato</a></li>
                 </ul>
             </div>
             <div class="col-lg-4">
                 <h5>Contato</h5>
-                <p>
-                    <i class="bi bi-envelope-fill"></i>
-                    contato@pontofacil.com.br
-                </p>
-                <p>
-                    <i class="bi bi-telephone-fill"></i>
-                    (44) 99999-9999
-                </p>
-                <p>
-                    <i class="bi bi-geo-alt-fill"></i>
-                    Maringá - PR
-                </p>
+                <p><i class="bi bi-envelope-fill"></i> contato@pontofacil.com.br</p>
+                <p><i class="bi bi-telephone-fill"></i> (44) 99999-9999</p>
+                <p><i class="bi bi-geo-alt-fill"></i> Maringá - PR</p>
             </div>
         </div>
         <hr>
         <div class="text-center">
-             2026 Ponto Fácil - Todos os direitos reservados
+            © 2026 Ponto Fácil - Todos os direitos reservados
         </div>
     </div>
 </footer>
+
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

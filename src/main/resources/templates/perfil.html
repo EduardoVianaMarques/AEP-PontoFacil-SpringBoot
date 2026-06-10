@@ -292,7 +292,7 @@
 </head>
 <body>
 <div class="dashboard">
-    <aside th:replace="~{fragments/navbar.html :: sidebar('perfil')}"></aside>
+    <aside th:replace="~{fragments/navbar_MenuLAteral :: sidebar('perfil')}"></aside>
 
     <main class="content">
         <div th:if="${sucesso}" class="alert alert-success" th:text="${sucesso}"></div>
@@ -453,20 +453,6 @@
                         </div>
                     </div>
                 </div>
-
-<!--                &lt;!&ndash; NÍVEL DE PARTICIPAÇÃO &ndash;&gt;-->
-<!--                <div class="card-dashboard mt-4">-->
-<!--                    <h4 class="card-title">-->
-<!--                        <i class="bi bi-award-fill text-success"></i>-->
-<!--                        Nível de Participação-->
-<!--                    </h4>-->
-<!--                    <div class="progress modern-progress">-->
-<!--                        <div class="progress-bar bg-success" style="width:80%">80%</div>-->
-<!--                    </div>-->
-<!--                    <div class="text-center mt-3">-->
-<!--                        <strong>Usuário Ativo</strong>-->
-<!--                    </div>-->
-<!--                </div>-->
             </div>
         </div>
     </main>

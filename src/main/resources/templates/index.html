@@ -489,7 +489,7 @@
 <body>
 
     <!-- NAVBAR -->
-    <nav th:replace="~{fragments/navbar :: navbar('inicio')}"></nav>
+    <nav th:replace="~{fragments/navbar_MenuLAteral :: navbar('inicio')}"></nav>
 
     <section class="hero">
         <div class="container">
@@ -517,20 +517,6 @@
                         <a th:href="@{/como-funciona}" class="btn btn-secondary-modern">
                             <i class="bi bi-play-circle"></i> Como Funciona
                         </a>
-                    </div>
-                    <div class="hero-stats">
-                        <div class="hero-stat">
-                            <h3>12.500+</h3>
-                            <p>Solicitações</p>
-                        </div>
-                        <div class="hero-stat">
-                            <h3>8.400+</h3>
-                            <p>Resolvidas</p>
-                        </div>
-                        <div class="hero-stat">
-                            <h3>98%</h3>
-                            <p>Satisfação</p>
-                        </div>
                     </div>
                 </div>
 
@@ -584,41 +570,6 @@
         </div>
     </section>
 
-    <!-- ESTATÍSTICAS -->
-    <section class="stats-section">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-md-3">
-                    <div class="stat-card">
-                        <i class="bi bi-file-earmark-check-fill"></i>
-                        <h3>12.500+</h3>
-                        <p>Solicitações Registradas</p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="stat-card">
-                        <i class="bi bi-check-circle-fill"></i>
-                        <h3>8.400+</h3>
-                        <p>Solicitações Resolvidas</p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="stat-card">
-                        <i class="bi bi-people-fill"></i>
-                        <h3>4.200+</h3>
-                        <p>Usuários Ativos</p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="stat-card">
-                        <i class="bi bi-star-fill"></i>
-                        <h3>98%</h3>
-                        <p>Satisfação</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- COMO FUNCIONA -->
     <section id="como-funciona" class="bg-light">
@@ -660,50 +611,6 @@
         </div>
     </section>
 
-<!--    &lt;!&ndash; AVALIAÇÕES &ndash;&gt;-->
-<!--    <section id="avaliacoes">-->
-<!--        <div class="container">-->
-<!--            <h2 class="section-title">O que os cidadãos dizem</h2>-->
-<!--            <p class="section-subtitle">-->
-<!--                Feedbacks reais de usuários que utilizam o Ponto Fácil para-->
-<!--                acompanhar e registrar solicitações urbanas.-->
-<!--            </p>-->
-<!--            <div class="row g-4">-->
-<!--                <div class="col-lg-3 col-md-6">-->
-<!--                    <div class="testimonial-card">-->
-<!--                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Maria">-->
-<!--                        <h5>Maria Silva</h5>-->
-<!--                        <div class="stars">⭐⭐⭐⭐⭐</div>-->
-<!--                        <p>Consegui registrar um problema de iluminação e acompanhar todo o processo até a resolução.</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="col-lg-3 col-md-6">-->
-<!--                    <div class="testimonial-card">-->
-<!--                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="João">-->
-<!--                        <h5>João Pereira</h5>-->
-<!--                        <div class="stars">⭐⭐⭐⭐⭐</div>-->
-<!--                        <p>Plataforma intuitiva e muito fácil de utilizar.</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="col-lg-3 col-md-6">-->
-<!--                    <div class="testimonial-card">-->
-<!--                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Ana">-->
-<!--                        <h5>Ana Souza</h5>-->
-<!--                        <div class="stars">⭐⭐⭐⭐⭐</div>-->
-<!--                        <p>Gostei da transparência e da rapidez nas atualizações.</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="col-lg-3 col-md-6">-->
-<!--                    <div class="testimonial-card">-->
-<!--                        <img src="https://randomuser.me/api/portraits/men/51.jpg" alt="Carlos">-->
-<!--                        <h5>Carlos Mendes</h5>-->
-<!--                        <div class="stars">⭐⭐⭐⭐⭐</div>-->
-<!--                        <p>Excelente ferramenta para aproximar o cidadão da prefeitura.</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </section>-->
 
     <!-- CONTATO -->
     <section id="contato" class="contact-section">
@@ -756,7 +663,6 @@
                     <ul class="footer-links">
                         <li><a href="#servicos">Serviços</a></li>
                         <li><a href="#como-funciona">Como Funciona</a></li>
-                        <li><a href="#avaliacoes">Avaliações</a></li>
                         <li><a href="#contato">Contato</a></li>
                     </ul>
                 </div>

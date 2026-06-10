@@ -257,8 +257,7 @@
 <body>
 
 <!-- Navbar -->
-<nav th:replace="~{fragments/navbar :: navbar('servicos')}"
-     class="navbar navbar-expand-lg shadow">
+<nav th:replace="~{fragments/navbar_MenuLAteral :: navbar('servicos')}">
 </nav>
 
 <!-- Hero Section -->
@@ -279,7 +278,7 @@
     </div>
 </section>
 
-<!-- Services Section -->
+
 <section class="services-section">
     <div class="container">
         <div class="row g-4">
@@ -288,8 +287,7 @@
             <div class="col-lg-4 col-md-6">
                 <div class="service-card">
                     <div class="service-image">
-                        <img src="https://media.istockphoto.com/id/2218491828/pt/foto/medical-team-smiling-at-camera-in-hospital-corridor.jpg?s=612x612&w=0&k=20&c=ChJJFt3XgyuT8A_SY30fEZXs0jC7Q9rZ5SUwK7JwJ_k="
-                             alt="Saúde Pública">
+                        <img th:src="@{/Images/saude.jpg}" alt="Saúde Pública">
                     </div>
                     <div class="service-body">
                         <div class="service-icon">
@@ -308,8 +306,7 @@
             <div class="col-lg-4 col-md-6">
                 <div class="service-card">
                     <div class="service-image">
-                        <img src="https://media.istockphoto.com/id/542727462/pt/foto/skyline-de-houston-texas.jpg?s=612x612&w=0&k=20&c=nua2rqhEHfASkkrLOLnLJZ-8MQV6qcz476YDh77ug_U="
-                             alt="Infraestrutura">
+                        <img th:src="@{/Images/infraestrutura.jpg}" alt="Infraestrutura">
                     </div>
                     <div class="service-body">
                         <div class="service-icon">
@@ -328,8 +325,7 @@
             <div class="col-lg-4 col-md-6">
                 <div class="service-card">
                     <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b"
-                             alt="Limpeza Urbana">
+                        <img th:src="@{/Images/limpeza.jpg}" alt="Limpeza Urbana">
                     </div>
                     <div class="service-body">
                         <div class="service-icon">
@@ -348,8 +344,7 @@
             <div class="col-lg-4 col-md-6">
                 <div class="service-card">
                     <div class="service-image">
-                        <img src="https://media.istockphoto.com/id/1357436687/pt/foto/industry-4-0-modern-factory-security-operator-controls-proper-functioning-of-workshop.jpg?s=612x612&w=0&k=20&c=csZoJra63AZXkGYNJAjZuM7aPJwiGuZZ3B30VTAYW4I="
-                             alt="Segurança Pública">
+                        <img th:src="@{/Images/seguranca.jpg}" alt="Segurança Pública">
                     </div>
                     <div class="service-body">
                         <div class="service-icon">
@@ -368,8 +363,7 @@
             <div class="col-lg-4 col-md-6">
                 <div class="service-card">
                     <div class="service-image">
-                        <img src="https://media.istockphoto.com/id/871365786/pt/foto/bus-terminal.jpg?s=612x612&w=0&k=20&c=OJd_ZlfeYb-8G4LeX5-t0h91-g_iHBIFXVtQM6SqI_U="
-                                 alt="Transporte Público">
+                        <img th:src="@{/Images/transporte.jpg}" alt="Transporte Público">
                     </div>
                     <div class="service-body">
                         <div class="service-icon">
@@ -388,8 +382,7 @@
             <div class="col-lg-4 col-md-6">
                 <div class="service-card">
                     <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40"
-                             alt="Outros Serviços">
+                        <img th:src="@{/Images/outros.jpg}" alt="Outros Serviços">
                     </div>
                     <div class="service-body">
                         <div class="service-icon">
@@ -408,41 +401,6 @@
     </div>
 </section>
 
-<!-- Stats Section -->
-<section class="stats-section">
-    <div class="container">
-        <div class="row g-4">
-            <div class="col-lg-3 col-md-6">
-                <div class="stat-card">
-                    <i class="bi bi-file-earmark-text"></i>
-                    <h2>12.500+</h2>
-                    <p>Solicitações Registradas</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="stat-card">
-                    <i class="bi bi-check-circle-fill"></i>
-                    <h2>8.400+</h2>
-                    <p>Solicitações Resolvidas</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="stat-card">
-                    <i class="bi bi-people-fill"></i>
-                    <h2>4.200+</h2>
-                    <p>Usuários Ativos</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="stat-card">
-                    <i class="bi bi-star-fill"></i>
-                    <h2>98%</h2>
-                    <p>Satisfação dos Usuários</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
 <!-- FOOTER -->
 <footer class="footer">
@@ -459,7 +417,6 @@
                 <ul class="footer-links">
                     <li><a href="#servicos">Serviços</a></li>
                     <li><a href="#como-funciona">Como Funciona</a></li>
-                    <li><a href="#avaliacoes">Avaliações</a></li>
                     <li><a href="#contato">Contato</a></li>
                 </ul>
             </div>

@@ -505,7 +505,7 @@
 
 <body>
 
-<nav th:replace="~{fragments/navbar :: navbar('como-funciona')}"></nav>
+<nav th:replace="~{fragments/navbar_MenuLAteral :: navbar('como-funciona')}"></nav>
 
 <section class="hero">
     <div class="container">
@@ -813,100 +813,6 @@
 
 </section>
 
-<!-- BENEFÍCIOS -->
-
-<section class="stats-section">
-
-    <div class="container">
-
-        <h2 class="section-title">
-            Benefícios do Sistema
-        </h2>
-
-        <div class="row g-4">
-
-            <div class="col-md-3">
-
-                <div class="stat-card">
-
-                    <i class="bi bi-clock-history"></i>
-
-                    <h3>Agilidade</h3>
-
-                    <p>Redução do tempo de atendimento.</p>
-
-                </div>
-
-            </div>
-
-            <div class="col-md-3">
-
-                <div class="stat-card">
-
-                    <i class="bi bi-eye-fill"></i>
-
-                    <h3>Transparência</h3>
-
-                    <p>Acompanhamento completo.</p>
-
-                </div>
-
-            </div>
-
-            <div class="col-md-3">
-
-                <div class="stat-card">
-
-                    <i class="bi bi-phone-fill"></i>
-
-                    <h3>Acessibilidade</h3>
-
-                    <p>Acesso em qualquer dispositivo.</p>
-
-                </div>
-
-            </div>
-
-            <div class="col-md-3">
-
-                <div class="stat-card">
-
-                    <i class="bi bi-people-fill"></i>
-
-                    <h3>Participação</h3>
-
-                    <p>Mais interação com a prefeitura.</p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-        <div class="cta-buttons">
-
-            <a class="btn btn-primary-modern"
-               th:href="@{/cadastro}">
-
-                <i class="bi bi-person-plus-fill"></i>
-                Criar Conta
-
-            </a>
-
-            <a class="btn btn-secondary-modern"
-               th:href="@{/login}">
-
-                <i class="bi bi-box-arrow-in-right"></i>
-                Fazer Login
-
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
 <!-- FOOTER -->
 <footer class="footer">
     <div class="container">
@@ -922,7 +828,6 @@
                 <ul class="footer-links">
                     <li><a href="#servicos">Serviços</a></li>
                     <li><a href="#como-funciona">Como Funciona</a></li>
-                    <li><a href="#avaliacoes">Avaliações</a></li>
                     <li><a href="#contato">Contato</a></li>
                 </ul>
             </div>

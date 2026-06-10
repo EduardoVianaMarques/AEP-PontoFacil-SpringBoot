@@ -245,7 +245,7 @@
 
 <body>
 
-<nav th:replace="~{fragments/navbar :: navbar('cadastro')}"></nav>
+<nav th:replace="~{fragments/navbar_MenuLAteral :: navbar('cadastro')}"></nav>
 
 <section class="register-section">
 
@@ -395,80 +395,54 @@
                             </div>
 
                             <div class="row">
-
                                 <div class="col-md-6 mb-3">
-
                                     <label class="form-label">
                                         CPF
                                     </label>
-
                                     <div class="position-relative">
-
                                         <i class="bi bi-card-text input-icon"></i>
-
                                         <input
                                                 type="text"
                                                 class="form-control modern-input ps-5"
                                                 name="cpf"
                                                 placeholder="000.000.000-00" maxlength="14"
                                                 required>
-
                                     </div>
-
                                 </div>
-
                                 <div class="col-md-6 mb-3">
-
                                     <label class="form-label">
                                         Telefone
                                     </label>
-
                                     <div class="position-relative">
-
                                         <i class="bi bi-telephone input-icon"></i>
-
                                         <input
                                                 type="text"
                                                 class="form-control modern-input ps-5"
                                                 name="telefone"
                                                 placeholder="(44) 99999-9999" maxlength="15"
                                                 required>
-
                                     </div>
-
                                 </div>
-
                             </div>
-
                             <div class="mb-4">
-
                                 <label class="form-label">
                                     Senha
                                 </label>
-
                                 <div class="position-relative">
-
                                     <i class="bi bi-lock input-icon"></i>
-
                                     <input
                                             type="password"
                                             class="form-control modern-input ps-5"
                                             name="senha"
                                             placeholder="Digite sua senha"
                                             required>
-
                                 </div>
-
                             </div>
-
                             <button type="submit"
                                     class="btn btn-primary-modern w-100">
-
                                 <i class="bi bi-person-plus-fill"></i>
                                 Criar Conta
-
                             </button>
-
                         </form>
 
                         <div class="login-area">
